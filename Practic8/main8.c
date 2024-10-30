@@ -133,6 +133,24 @@ int Task2() {
 
 
 
+double chet(int n)
+{
+    double sinx = 0;
+    double res = 0;
+    if (n > 0) {
+
+        for (int i = 1; i <= n; i++)
+        {
+            sinx += sin(i);
+        }
+        res = 1 / sinx + chet(n - 1);
+    }
+    else {
+        res = 0;
+    }
+    return res;
+}
+
 
 
 //не получается сделать так как в языке си нет рефлексии 
@@ -148,22 +166,4 @@ int HomeWork() {
     res = chet(n);
     printf("Результат: %f", res);
     return 0;
-}
-
-double chet(int n)
-{
-    double sinx = 0;
-    double res = 0;
-    if (n > 0) {
-
-        for (int i = 1; i < n; i++)
-        {
-            sinx += sin(i);
-        }
-        res = 1 / sinx + chet(n - 1);
-    }
-    else {
-        res = 0;
-    }
-    return res;
 }
