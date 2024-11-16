@@ -13,7 +13,7 @@ int main()
 	//Task1();
 	//Task2();
 	//Task3();
-	//HomeWork();
+	HomeWork();
 	return 0;
 }
 
@@ -66,7 +66,7 @@ int Task1() {
 
 int Task2() {
 	setlocale(LC_ALL, "Rus");
-	double x = 0;
+	double x = 2.1;
 	printf("¬ведите x\n");
 	scanf_s("%lf", &x);
 

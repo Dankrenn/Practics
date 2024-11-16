@@ -3,8 +3,8 @@
 
 int main()
 {
-	Task1();
-	Task2();
+	//Task1();
+	//Task2();
 	Task3();
 	HomeWork();
 	return 0;
@@ -58,22 +58,27 @@ int Task2() {
 
 
 int Task3() {
+	setlocale(LC_ALL, "Rus");
 	double n = 53.754;
 	int l = 13;
 	double result = n / l;
 	int k = result;
 	double m = result - k;
-	printf("Данные %f / %d\n",n,l);
-	printf("Результат: %d  целой части и %f дробной части \n",k,m);
+	printf("Данные:  %36s %f / %d\n","",n, l);
+	printf("Результат: %c знак %d  целой части и %10.4f дробной части \n", (n > 0 && l > 0) ? '+' : '-', k, m);
 	printf("\n");
 	return 0;
 }
 
 int HomeWork() {
-	printf("       ______\n");
-	printf("      /|_||_\\`.__\n");
-	printf("     (   _    _ _\\\n");
-	printf("      `-(_)--(_)-'\n");
+	setlocale(LC_ALL, "Rus");
+	int n = 3;
+	int l = 313;
+	double result = n / l;
+	int k = result;
+	double m = result - k;
+	printf("Данные: %44s %d / %d\n","", n, l);
+	printf("Результат: %c знак %d  целой части и %10.4f дробной части \n",(n>0&&l>0)?'+' : '-', k, m);
 	printf("\n");
 	return 0;
 }

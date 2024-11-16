@@ -6,9 +6,9 @@
 int main()
 {
 	//Task1();
-	//Task2();
+	Task2();
 	//Task3();
-	HomeWork();
+	//HomeWork();
 	return 0;
 }
 
@@ -39,15 +39,17 @@ int Task2() {
 	printf("Введите x: \n");
 	scanf_s("%lf", &x);
 
+	f = x<3.2 ? pow(x, 4) + 9 : (54 * pow(x, 4)) / (-5 * pow(x, 2) + 7);
+	printf("X %c 3.2, F(x) = %.3f\n",x>3.2? '>':'<', f);
 	// Если x < 3.2, f(x) = x^4 + 9
-	if (x < 3.2) {
-		f = pow(x, 4) + 9;
-		printf("X < 3.2, F(x) = %.3f\n", f);
-	}
-	else { // Иначе f(x) = 54x^4 / (-5x^2 + 7)
-		f = (54 * pow(x, 4)) / (-5 * pow(x, 2) + 7);
-		printf("X >= 3.2, F(x) = %.4le\n", f);
-	}
+	//if (x < 3.2) {
+	//	f = pow(x, 4) + 9;
+	//	printf("X < 3.2, F(x) = %.3f\n", f);
+	//}
+	//else { // Иначе f(x) = 54x^4 / (-5x^2 + 7)
+	//	f = (54 * pow(x, 4)) / (-5 * pow(x, 2) + 7);
+	//	printf("X >= 3.2, F(x) = %.4le\n", f);
+	//}
 
 	return 0;
 }

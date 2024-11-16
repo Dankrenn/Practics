@@ -6,7 +6,7 @@ int main()
 {
 	//Task1();
 	//Task2();
-	//Task3();
+	Task3();
 	HomeWork();
 	return 0;
 }
@@ -102,12 +102,7 @@ int Task3() {
 	int tho = a / 10 % 10;
 	int three = a % 10;
 
-	printf("Последняя цифра %d\n", three);
-	printf("Первая цифра %d\n", one);
-	printf("Сумма цифр данного числа %d\n", one+tho+three);
-	printf("%d", three);
-	printf("%d", tho);
-	printf("%d", one);
+	printf("Последняя цифра %d;Первая цифра %d;Сумма цифр данного числа %d;Число в обратном порядке %d\n", three,one,one+tho+three,three*100+tho*10+one);
 	printf("\n");
 }
 
@@ -124,7 +119,7 @@ int HomeWork() {
 	setlocale(LC_ALL, "Rus");
 	double d1, d2, d3;
 
-	// Ввод расстояний
+
 	printf("Введите расстояние от человека до реки (d1): ");
 	scanf_s("%lf", &d1);
 
@@ -134,8 +129,7 @@ int HomeWork() {
 	printf("Введите расстояние по течению реки от костра до человека (d3): ");
 	scanf_s("%lf", &d3);
 
-	// Вычисление минимального расстояния
-	double verticalDistance = d2 - d1; // Перпендикулярное расстояние
+	double verticalDistance = d2 - d1; 
 	double distanceToFire = d1 + sqrt((d3 * d3) + (verticalDistance * verticalDistance));
 
 	// Вывод результата

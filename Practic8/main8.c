@@ -7,8 +7,8 @@ int main()
 {
     //Task0();
     //Task1();
-    //Task2();
-    HomeWork();
+    Task2();
+    //HomeWork();
     return 0;
 }
 int Task0() {
@@ -116,9 +116,9 @@ int Task2() {
     printf("¬ведите значение шага табул€ции: ");
     scanf_s("\n%f", &n);
 
-    for (double x = 0.2; x <= 2.2; x += 1.0)
+    for (double x = 0.2; x <= 2.2; x += n)
     {
-        y = 1.8 * exp(log(x) * 2) - sin(10 * x); // exp(log(a) * 2) так как ругаетс€ линтер
+        y = 1.8 * pow(x, 2) - sin(10 * x); // exp(log(a) * 2) так как ругаетс€ линтер
         //–езультаты оформить в виде таблицы.
         printf("____________________\n");
         printf("| %1.1f | %5.5f |\n", x, y);

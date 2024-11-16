@@ -7,7 +7,7 @@
 int main()
 {
 	//Task1();
-	Task2();
+	//Task2();
 	HomeWork();
 	return 0;
 }
@@ -142,7 +142,7 @@ int HomeWork() {
 		res = -1;
 		break;
 	}
-	if (9 <= res >= 0) {
+	if (9 >= res  && res >= 0) {
 		printf("Это цифра %d\n", res);
 	}
 	else
