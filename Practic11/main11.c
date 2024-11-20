@@ -41,7 +41,6 @@ int Task1() {
 }
 int Task2() {
 	setlocale(LC_CTYPE, "RUS");
-	//y = 1.8x^2 - sin10x
 	double A[100];
 	double avg;
 	double avg_pol = 0;
@@ -81,21 +80,22 @@ int Task2() {
 
 int Task3() {
 	setlocale(LC_CTYPE, "RUS");
-	float A[10];
-	float B[10];
+	float A[11];
 	int rez = 1;
-	for (int i = 0; i < 10; i++)
+	for (int i = 1; i <= 10; i++)
 	{
 		float c;
-		printf("a[%d] = ", i + 1);
+		printf("a[%d] = ", i);
 		scanf_s("%f", &c);
 		A[i] = c;
 	}
-	for (int i = 0; i < 10; i++)
+	for (int i = 0; i <= 10; i++)
 	{
-		if (A[i] > 0)
+		if (A[i] >= 0)
 		{
-			rez *= i != 0 ? i :i+1;
+			if (i != 0) {
+				rez *= i;
+			}
 			printf("%d , %d\n", i, rez);
 		}
 	}

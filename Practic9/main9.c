@@ -51,8 +51,6 @@ int Task1() {
     return 0;
 }
 
-
-
 int Task2() {
     while (1) {
         char a;
@@ -143,8 +141,6 @@ int Task2() {
     }
 }
 
-
-
 double SideLength(int a, int b, int g) {
     // Преобразуем угол g из градусов в радианы
     double g_rad = g * (M_PI / 180.0);
@@ -182,35 +178,65 @@ int Picher(char ch, int A, int B, int C, int D) {
 }
 
 int HomeWork() {
+    setlocale(LC_ALL, "Rus");
+    char symbol;
+    int side, r;
 
-    while (1) {
-        setlocale(LC_ALL, "Rus");
-        char ch;
-        int d1, d2, g;
-        printf("Введите символ которым хотите рисовать: ");
-        scanf_s("%c", &ch);
-        printf("Введите первую диагональ: ");
-        scanf_s("%d", &d1);
-        printf("Введите вторую диагональ: ");
-        scanf_s("%d", &d2);
-        printf("Введите угол в градусах : ");
-        scanf_s("%d", &g);
-        if (g < 180) {
+    printf("Введите символ для заполнения квадрата: ");
+    scanf_s("%c", &symbol);
 
-            int d1_d = d1 / 2;
-            int d2_d = d1 / 2;
 
-            //стороны четерехугольника
-            int A, B, C, D;
-            A = SideLength(d1_d, d2_d, g);
-            B = SideLength(d1_d, d2_d, 180 - g);
-            C = SideLength(d1_d, d2_d, g);
-            D = SideLength(d1_d, d2_d, 180 - g);
-            Picher(ch, A, B, C, D);
-        } 
-        printf("\nЖелаете продолжить? Нажмите любую цифру\n");
-        char a = getchar();
-        if (a == '1' || a == '2' || a == '3' || a == '4' || a == '5' || a == '6' || a == '7' || a == '8' || a == '9' || a == '0') break;
+    printf("Введите длину радиуса: ");
+    scanf_s("%d", &r);
+
+    side = r * 2;
+
+    for (int i = 0; i < side; ++i) {
+        if (i == 0 || i == side - 1) {
+            for (int j = 0; j < side * 2 - 1; ++j) {
+                printf("%c", symbol);
+            }
+            printf("\n");
+        }
+        else {
+            printf("%c", symbol);
+            for (int j = 2; j < side * 2 - 1; ++j) {
+                printf(" ");
+            }
+            printf("%c\n", symbol);
+        }
     }
+
+    return 0;
+
 }
 
+//while (1) {
+   //    setlocale(LC_ALL, "Rus");
+   //    char ch;
+   //    int d1, d2, g;
+   //    printf("Введите символ которым хотите рисовать: ");
+   //    scanf_s("%c", &ch);
+   //    printf("Введите первую диагональ: ");
+   //    scanf_s("%d", &d1);
+   //    printf("Введите вторую диагональ: ");
+   //    scanf_s("%d", &d2);
+   //    printf("Введите угол в градусах : ");
+   //    scanf_s("%d", &g);
+   //    if (g < 180) {
+
+   //        int d1_d = d1 / 2;
+   //        int d2_d = d1 / 2;
+
+   //        //стороны четерехугольника
+   //        int A, B, C, D;
+   //        A = SideLength(d1_d, d2_d, g);
+   //        B = SideLength(d1_d, d2_d, 180 - g);
+   //        C = SideLength(d1_d, d2_d, g);
+   //        D = SideLength(d1_d, d2_d, 180 - g);
+   //        Picher(ch, A, B, C, D);
+   //    } 
+   //    printf("\nЖелаете продолжить? Нажмите любую цифру\n");
+   //    char a = getchar();
+   //    if (a == '1' || a == '2' || a == '3' || a == '4' || a == '5' || a == '6' || a == '7' || a == '8' || a == '9' || a == '0') break;
+   //}

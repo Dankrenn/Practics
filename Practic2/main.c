@@ -64,21 +64,29 @@ int Task3() {
 	double result = n / l;
 	int k = result;
 	double m = result - k;
-	printf("Данные:  %36s %f / %d\n","",n, l);
-	printf("Результат: %c знак %d  целой части и %10.4f дробной части \n", (n > 0 && l > 0) ? '+' : '-', k, m);
+	printf("Дано:\n");
+	printf("%11c %6.3lf\n", ' ', n);
+	printf("%10c %7d\n", ' ', l);
+	printf("         _________\n");
+	printf("Ответ:\n");
+	printf("%10c %c %5.3lf\n", ' ', (n > 0 && l > 0) ? '+' : '-', m);
 	printf("\n");
 	return 0;
 }
 
 int HomeWork() {
 	setlocale(LC_ALL, "Rus");
-	int n = 3;
-	int l = 313;
+	double n = 3;
+	double l = 313;
 	double result = n / l;
 	int k = result;
 	double m = result - k;
-	printf("Данные: %44s %d / %d\n","", n, l);
-	printf("Результат: %c знак %d  целой части и %10.4f дробной части \n",(n>0&&l>0)?'+' : '-', k, m);
+	printf("Дано:\n");
+	printf("%12c %6.5lf\n", ' ', n);
+	printf("%10c %7.5lf\n", ' ', l);
+	printf("           _________\n");
+	printf("Ответ:\n");
+	printf("%10c %c %5.5lf\n", ' ', (n > 0 && l > 0) ? '+' : '-', m);
 	printf("\n");
 	return 0;
 }
