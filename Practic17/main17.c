@@ -3,28 +3,15 @@
 #include <time.h>
 #include <stdlib.h>
 
+#define MAX_SIZE 100
+
 int main()
 {
 	setlocale(LC_CTYPE, "RUS");
 	//Task1();
-	Task2();
-	//Task3();
-	//HomeWork();
+	//Task2();
+	HomeWork();
 	return 0;
-}
-
-void full_elements(double* ptr_array, int n) {
-	printf("y = 1.8x^2 - sin(10x), интервал от 0.2 до 2.2\n");
-
-	double z = 0;
-	printf("¬ведите значение шага табул€ции: ");
-	scanf_s("%lf", &z);
-
-	for (int i = 0; i < n; i++) {
-		double x = 0.2 + i * z; // шаг от 0.2 с шагом z
-		ptr_array[i] = 1.8 * pow(x, 2) - sin(10 * x);
-		printf("%lf\n", ptr_array[i]);
-	}
 }
 
 void CalcNabor(int* ptr_array, int n) {
@@ -142,40 +129,84 @@ int Task1() {
 
 	return 0;
 }
+
+void full_elements(int* ptr_array, int n) {
+	printf("y = 1.8x^2 - sin(10x), интервал от 0.2 до 2.2\n");
+
+	double z = 0;
+	printf("¬ведите значение шага табул€ции: ");
+	scanf_s("%lf", &z);
+
+	for (int i = 0; i < n; i++) {
+		int x = 0.2 + i * z; // шаг от 0.2 с шагом z
+		ptr_array[i] = 1.8 * pow(x, 2) - sin(10 * x);
+	}
+}
+
 int Task2() {
-	double ptr_array[50];
+	int ptr_array[50];
 	int size = 0;
 	printf("¬ведите размер массива: ");
 	scanf_s("%d", &size);
 
 	full_elements(ptr_array, size);
 	printf("\n");
+	printf("\n»сходный массив:\n");
+	put_elements(ptr_array, size);
 
 	clock_t t;
 	t = clock();
-	sort_insert((int*)ptr_array, size); 
-	t = clock() - t; 
-
-	double time_taken = ((double)t) / CLOCKS_PER_SEC; 
+	sort_insert(ptr_array, size); 
+	double time_taken = clock() - t *1 / CLOCKS_PER_SEC ;
 	printf("\n¬рем€ выполнени€ сортировки вставками: %.9f секунд\n", time_taken);
 	printf("\nќтсортированный массив:\n");
 	put_elements(ptr_array, size);
 	return 0;
 }
 
-int Task3() {
-	printf(" _  _         _     \n");
-	printf("| | _|  | |  | | |_|\n");
-	printf("|_| |_ .| |. |_|   |\n");
-	printf("\n");
-	return 0;
+
+void generate_random_array(int* arr, int n) {
+	for (int i = 0; i < n; i++) {
+		arr[i] = rand() % 100;
+	}
+}
+
+void compare_sorting_times(int* arr, int size) {
+	int arr_copy[MAX_SIZE];
+
+	for (int i = 0; i < size; i++) arr_copy[i] = arr[i];
+	clock_t t = clock();
+	sort_buble(arr_copy, size);
+	double time_taken = clock() - t * 1 / CLOCKS_PER_SEC;
+	printf("¬рем€ выполнени€ пузырьковой сортировки: %.9f секунд\n", time_taken);
+
+	for (int i = 0; i < size; i++) arr_copy[i] = arr[i];
+	t = clock();
+	sort_select(arr_copy, size);
+    time_taken = clock() - t * 1 / CLOCKS_PER_SEC;
+	printf("¬рем€ выполнени€ сортировки выбором: %.9f секунд\n", time_taken);
+
+	for (int i = 0; i < size; i++) arr_copy[i] = arr[i];
+	t = clock();
+	sort_sheker(arr_copy, size);
+	time_taken = clock() - t * 1 / CLOCKS_PER_SEC;
+	printf("¬рем€ выполнени€ коктейльной сортировки: %.9f секунд\n", time_taken);
+
+	for (int i = 0; i < size; i++) arr_copy[i] = arr[i];
+	t = clock();
+	sort_insert(arr_copy, size);
+	time_taken = clock() - t * 1 / CLOCKS_PER_SEC;
+	printf("¬рем€ выполнени€ сортировки вставками: %.9f секунд\n", time_taken);
 }
 
 int HomeWork() {
-	printf("       ______\n");
-	printf("      /|_||_\\`.__\n");
-	printf("     (   _    _ _\\\n");
-	printf("      `-(_)--(_)-'\n");
-	printf("\n");
+	int sizes[] = { 10, 89, 100 };
+	for (int i = 0; i < 3; i++) {
+		int size = sizes[i];
+		int arr[MAX_SIZE];
+		generate_random_array(arr, size);
+		printf("\n—равнение сортировок дл€ массива размера %d\n", size);
+		compare_sorting_times(arr, size);
+	}
 	return 0;
 }
