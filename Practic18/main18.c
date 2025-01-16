@@ -7,8 +7,8 @@
 int main()
 {
 	setlocale(LC_CTYPE, "RUS");
-	//Task1();
-	//Task2();
+	Task1();
+	Task2();
 	HomeWork();
 	return 0;
 }
@@ -48,18 +48,26 @@ void which_quarter(Point z) {
 
 
 int Task1() {
+	printf("Задание 1.  Напишите программу, работающую с точками на плоскости\n");
 	Point b, a;
 	a = (Point){ 1.f,3.f,'A' };
 	b.name = 'B'; b.x = 5; b.y = -3;
+	printf("Реализуйте отображение точки в отдельной функции\n");
 	put_point(a);
 	printf("\n");
 	put_point(b);
 	printf("\n");
+	printf("Добавьте функцию вычисления  декартова расстояния между двумя точками.\n");
 	dist(a, b);
 	printf("\n");
+	printf("Добавьте функцию получения новой точки - середины отрезка между двумя точками. Реализуйте обращение к ней из функции main() для вычисления средней из двух  введенных пользователем точек. \n");
 	average(a, b);
 	printf("\n");
+	printf("Напишите функцию для определения к какой координатной четверти относится точка.\n");
 	which_quarter(a);
+
+	printf("ЗАДАНИЕ 1 ЗАВЕРШЕНО\n");
+	printf("\n");
 	return 0;
 }
 
@@ -80,6 +88,7 @@ void center(const char* message) {
 }
 
 int Task2() {
+	printf("Задание 2. Напишите программу, которая выводит на экран текущее время.\n");
 	struct tm* mytime;
 	time_t t;
 	t = time(NULL);
@@ -95,13 +104,17 @@ int Task2() {
 		mytime->tm_min, 
 		mytime->tm_sec);
 	center(array);
+	printf("Добавьте вывод «сегодня N-й день года»\n");
+
 	int day = mytime->tm_yday;
-	sprintf(array, "Сегодня %d день года ", day);
+	sprintf(array, "Сегодня %d день  года ", day);
 	center(array);
 	for (int i = 0; i < 80; i++)
 	{
 		printf("*");
 	}
+	printf("ЗАДАНИЕ 2 ЗАВЕРШЕНО\n");
+	printf("\n");
 	return 0;
 }
 
@@ -145,9 +158,12 @@ void print_worker(worker_t* worker) {
 }
 
 int HomeWork() {
+	printf("ДЗ.Реализуйте создание структуры «Работник»:, заполнение полей и вывод на экран. \n");
 	struct Worker worker1;
 	fill_worker(&worker1);
 	printf("\n");
 	print_worker(&worker1);
+	printf("ДЗ ЗАВЕРШЕНО\n");
+	printf("\n");
 	return 0;
 }

@@ -1,12 +1,13 @@
 #include <stdio.h>
 #include <locale.h>
 #include <stdlib.h>
+#include <math.h>
 
 int main()
 {
 	setlocale(LC_CTYPE, "RUS");
-	//Task1();
-	//Task2();
+	Task1();
+	Task2();
 	HomeWork();
 	return 0;
 }
@@ -59,22 +60,29 @@ void calc_elements(double* ptr_array, int n) {
 }
 
 int Task1() {
+    printf("Задание 1. Напишите программу, которая работает с динамическим массивом\n");
 	double* ptr_array;
 	int size = 0;
 	printf("Введите размер массива: ");
 	scanf_s("%d", &size);
+    printf("Выделение памяти ptr_array = (double*)malloc(size * sizeof(double));\n");
 	ptr_array = (double*)malloc(size * sizeof(double));
 	if (ptr_array == NULL) {
 		puts("error");
 		return -1;
 	}
+    printf("Заполните массив значениями, используя функцию  из лаб. 14\n");
 	full_elements(ptr_array, size);
 	put_elements(ptr_array, size);
 	printf("\n");
+    printf("Выполните над элементами массива указанное преобразование (см. функцию лаб.14 \n");
 	calc_elements(ptr_array, size);
 	printf("\n");
 	put_elements(ptr_array, size);
 	free(ptr_array);
+
+    printf("ЗАДАНИЕ 1 ЗАВЕРШЕНО\n");
+    printf("\n");
 	return 0;
 }
 
@@ -150,6 +158,7 @@ double* searchFirstNegative(double* array, int* size, double num) {
 }
 
 int Task2() {
+    printf("Задание 2. Перепишите программу так, чтобы массив хранил значения типа double, заполните его случайными числами от -1 до 1.\n");
     double* ptr_array;
     int size = 0;
 
@@ -171,20 +180,20 @@ int Task2() {
     printf("Исходный массив:\n");
     put_elements(ptr_array, size);
 
-    // Удаление всех элементов, меньших среднего арифметического
+    printf("Удаление всех элементов, меньших среднего арифметического\n");
     double avg = calculateAverage(ptr_array, size);
     printf("Среднее арифметическое: %lf\n", avg);
     size = deleteAvg(ptr_array, size, avg);
     printf("Массив после удаления элементов, меньших среднего:\n");
     put_elements(ptr_array, size);
-
-    // Вставка -999 перед первым отрицательным
+    printf("Вставка -999 перед первым отрицательным\n");
     double number = -999;
     ptr_array = searchFirstNegative(ptr_array, &size, number);
-
     printf("Изменённый массив:\n");
     put_elements(ptr_array, size);
     free(ptr_array);
+    printf("ЗАДАНИЕ 2 ЗАВЕРШЕНО\n");
+    printf("\n");
     return 0;
 }
 
@@ -225,6 +234,14 @@ void d_elements(double* d, int size_d, double* a, int size1, double* b, int size
 }
 
 int HomeWork() {
+    printf("ДЗ.\n");
+    printf("Сгенерировать три массива со случайными вещественными числами а0,\n");
+    printf("а1, а2, ..., an, b0, b1, b2 ..., bm, с0, с1,с2, ..., сl, количество элементов случайно в\n");
+    printf("интервале от 10 до 50. Реализовать функцию, которая возвращает новый\n");
+    printf("массив (см. инд. Вариант). Все 4 массива вывести на экран.\n");
+    printf("Массив d0, d1, d2, ..., dh в котором большее из аi и bi .\n");
+    printf("принять в качестве четного элементам , а меньшее из сi и bi – в качестве нечетного ..\n");
+
     int size1, size2, size3 , size4;
     double *a, *b, *c, *d;
     printf("Введите размер массива 1 (10:50) ");
@@ -262,5 +279,8 @@ int HomeWork() {
     free(b);
     free(c);
     free(d);
+
+    printf("ДЗ ЗАВЕРШЕНО\n");
+    printf("\n");
     return 0;
 }

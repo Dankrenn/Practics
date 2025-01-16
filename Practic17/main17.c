@@ -8,8 +8,8 @@
 int main()
 {
 	setlocale(LC_CTYPE, "RUS");
-	//Task1();
-	//Task2();
+	Task1();
+	Task2();
 	HomeWork();
 	return 0;
 }
@@ -108,25 +108,33 @@ void sort_insert(int* ptrarr, int n) {
 }
 
 int Task1() {
-	int ptr_array[100] = {3,6,5,2,8,7,5,3,9,8,0};
+	printf("Задание 1.  Реализовать функции сортировки массива целых чисел по следующему алгоритму\n");
+	int ptr_array1[100] = {3,6,5,2,8,7,5,3,9,8,0};
+	int ptr_array2[100] = { 3,6,5,2,8,7,5,3,9,8,0 };
+	int ptr_array3[100] = { 3,6,5,2,8,7,5,3,9,8,0 };
+	int ptr_array4[100] = { 3,6,5,2,8,7,5,3,9,8,0 };
 	int size = 11;
-	//printf("Введите размер массива: ");
-	//scanf_s("%d", &size);
 
-	//CalcNabor(ptr_array, size);
-	//printf("\n");
-	put_elements(ptr_array, size);
+	put_elements(ptr_array1, size);
 	printf("\n");
-	sort_buble(ptr_array, size);
+	printf("Пузырьком\n");
+	sort_buble(ptr_array1, size);
+	put_elements(ptr_array1, size);
 	printf("\n");
-	sort_sheker(ptr_array, size);
+	printf("Шейкером\n");
+	sort_sheker(ptr_array2, size);
+	put_elements(ptr_array2, size);
 	printf("\n");
-	sort_select(ptr_array, size);
-	sort_insert(ptr_array, size);
-	put_elements(ptr_array, size);
+	printf("Простым выбором\n");
+	sort_select(ptr_array3, size);
+	put_elements(ptr_array3, size);
+	printf("Вставкой\n");
+	sort_insert(ptr_array4, size);
+	put_elements(ptr_array4, size);
 	printf("\n");
 
-
+	printf("ЗАДАНИЕ 1 ЗАВЕРШЕНО\n");
+	printf("\n");
 	return 0;
 }
 
@@ -144,6 +152,8 @@ void full_elements(int* ptr_array, int n) {
 }
 
 int Task2() {
+	printf("Задание 2.  Разработать программный комплекс для проведения вычислительных экспериментов по оценке эффективности алгоритмов.\n");
+
 	int ptr_array[50];
 	int size = 0;
 	printf("Введите размер массива: ");
@@ -161,6 +171,8 @@ int Task2() {
 	printf("\nВремя выполнения сортировки вставками: %.9f секунд\n", time_taken);
 	printf("\nОтсортированный массив:\n");
 	put_elements(ptr_array, size);
+	printf("ЗАДАНИЕ 2 ЗАВЕРШЕНО\n");
+	printf("\n");
 	return 0;
 }
 
@@ -200,6 +212,9 @@ void compare_sorting_times(int* arr, int size) {
 }
 
 int HomeWork() {
+	printf("ДЗ. Проведите вычислительный эксперимент по одному из вариантов\n");
+	printf("1) сравнение простых сортировок (выбором, пузырьковая, коктельная, вставками) для различных размеров выборок  100, 1000, 10000 значений\n");
+
 	int sizes[] = { 10, 89, 100 };
 	for (int i = 0; i < 3; i++) {
 		int size = sizes[i];
